@@ -89,6 +89,7 @@ wagtail-seo = {git = "https://github.com/jdlabsco/wagtail-seo.git"}
 django-storages = "^1.13.2"
 boto3 = "^1.28.5"
 whitenoise = "^6.5.0"
+wagtail-localize = "^1.5.1"
 
 
 [build-system]

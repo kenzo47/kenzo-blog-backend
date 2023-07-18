@@ -30,6 +30,9 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 CUSTOM_APPS = [
+    "wagtail_localize",
+    "wagtail_localize.locales",
+    "wagtailseo",
     "wagtail_headless_preview",
     "storages",
 ]
@@ -93,6 +96,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "wagtail.contrib.settings.context_processors.settings",
             ],
         },
     },

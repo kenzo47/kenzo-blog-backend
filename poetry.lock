@@ -753,6 +753,17 @@ docs = ["furo (>=2023.5.20)", "proselint (>=0.13)", "sphinx (>=7.0.1)", "sphinx-
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.3.1)", "pytest-cov (>=4.1)", "pytest-mock (>=3.10)"]
 
 [[package]]
+name = "polib"
+version = "1.2.0"
+description = "A library to manipulate gettext files (po and mo files)."
+optional = false
+python-versions = "*"
+files = [
+    {file = "polib-1.2.0-py2.py3-none-any.whl", hash = "sha256:1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d"},
+    {file = "polib-1.2.0.tar.gz", hash = "sha256:f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b"},
+]
+
+[[package]]
 name = "psycopg2-binary"
 version = "2.9.6"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
@@ -1162,6 +1173,17 @@ files = [
 docs = ["mkdocs (>=1.1,<1.2)", "mkdocs-material (>=6.2,<6.3)"]
 
 [[package]]
+name = "typing-extensions"
+version = "4.7.1"
+description = "Backported and Experimental Type Hints for Python 3.7+"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "typing_extensions-4.7.1-py3-none-any.whl", hash = "sha256:440d5dd3af93b060174bf433bccd69b0babc3b15b1a8dca43789fd7f61514b36"},
+    {file = "typing_extensions-4.7.1.tar.gz", hash = "sha256:b75ddc264f0ba5615db7ba217daeb99701ad295353c45f9e95963337ceeeffb2"},
+]
+
+[[package]]
 name = "tzdata"
 version = "2023.3"
 description = "Provider of IANA time zone data"
@@ -1251,6 +1273,28 @@ wagtail = ">=4.1"
 testing = ["django-cors-headers", "tox"]
 
 [[package]]
+name = "wagtail-localize"
+version = "1.5.1"
+description = "Translation plugin for Wagtail CMS"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wagtail-localize-1.5.1.tar.gz", hash = "sha256:4947615f87376fcd31bf8c569426f162887c426c493083b3c231e42e7d6eaad9"},
+    {file = "wagtail_localize-1.5.1-py3-none-any.whl", hash = "sha256:34fa51be60a52a6c5fbc7100e7119bf808487ee30e9676711a5609be0806e095"},
+]
+
+[package.dependencies]
+Django = ">=3.2,<5.0"
+polib = ">=1.1,<2.0"
+typing_extensions = ">=4.0"
+Wagtail = ">=4.1"
+
+[package.extras]
+documentation = ["mkdocs (==1.4.3)", "mkdocs-autorefs (>=0.4.0,<0.5)", "mkdocs-include-markdown-plugin (>=4.0.4,<5)", "mkdocs-material (>=9.1,<10)", "mkdocstrings[python] (==0.22.0)", "pygments (>=2.15,<2.16)"]
+google = ["google-cloud-translate (>=3.0.0)"]
+testing = ["dj-database-url (==0.5.0)", "django-rq (>=2.5,<3.0)", "freezegun (==1.1.0)", "google-cloud-translate (>=3.0.0)", "pre-commit (>=2.21.0,<3.0)"]
+
+[[package]]
 name = "wagtail-seo"
 version = "2.3.1"
 description = "Search engine and social media optimization for Wagtail."
@@ -1314,4 +1358,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c9a26b5c773732cbf6b2e797642b57de475610784bf43abca973506223be3089"
+content-hash = "ccd6ce3d44025fdd5aeb345372c36b5ca0e34c381f63e063cfb4c7f2714f2bd0"
