@@ -1150,6 +1150,24 @@ wagtail = ">=4.1"
 testing = ["django-cors-headers", "tox"]
 
 [[package]]
+name = "wagtail-seo"
+version = "2.3.1"
+description = "Search engine and social media optimization for Wagtail."
+optional = false
+python-versions = ">=3.6"
+files = []
+develop = false
+
+[package.dependencies]
+wagtail = ">=3.0,<=6.0"
+
+[package.source]
+type = "git"
+url = "https://github.com/jdlabsco/wagtail-seo.git"
+reference = "HEAD"
+resolved_reference = "ce5c537f135bf782cc753c0fe3b55c27c8a6b178"
+
+[[package]]
 name = "webencodings"
 version = "0.5.1"
 description = "Character encoding aliases for legacy web content"
@@ -1181,4 +1199,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "6b78555ba032730e2e95cd34d00ae00984e0bebc1fdf5aafaaebf2854a6e4deb"
+content-hash = "060621201143bf2a75b5026ac79a775e40a148d22f725ab1e99ebd4b4a0cbf88"

@@ -85,6 +85,7 @@ django-cors-headers = "^4.2.0"
 psycopg2-binary = "^2.9.6"
 wagtail-headless-preview = "^0.6.0"
 djangorestframework-simplejwt = "^5.2.2"
+wagtail-seo = {git = "https://github.com/jdlabsco/wagtail-seo.git"}
 
 
 [build-system]
