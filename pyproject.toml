@@ -88,6 +88,7 @@ djangorestframework-simplejwt = "^5.2.2"
 wagtail-seo = {git = "https://github.com/jdlabsco/wagtail-seo.git"}
 django-storages = "^1.13.2"
 boto3 = "^1.28.5"
+whitenoise = "^6.5.0"
 
 
 [build-system]
