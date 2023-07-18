@@ -35,8 +35,8 @@ CUSTOM_APPS = [
 ]
 
 INSTALLED_APPS = [
-    "base.custom_user",
     "base",
+    "base.custom_user",
     "home",
     "search",
     "wagtail.contrib.forms",
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "taggit",
     "django.contrib.admin",
     "django.contrib.auth",
+    "wagtail.contrib.settings",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
@@ -83,7 +84,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            "base/templates",
+            "kenzo/templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -97,7 +98,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "base.wsgi.application"
+WSGI_APPLICATION = "kenzo.wsgi.application"
 
 
 # Database
