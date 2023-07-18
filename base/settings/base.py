@@ -210,6 +210,7 @@ SITE_ID = 1
 WAGTAIL_SITE_NAME = ENV("WAGTAIL_SITE_NAME")
 ROOT_URLCONF = f"{ENV('SITE_MODULE_NAME')}.urls"
 BASE_URL = ENV("BASE_URL")
+FRONTEND_URL = ENV("FRONTEND_URL")
 SECRET_KEY = ENV("SECRET_KEY")
 ALLOWED_HOSTS = ENV("ALLOWED_HOSTS").split()
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -241,3 +242,10 @@ WAGTAILADMIN_BASE_URL = "https://kenzo47.dev"
 
 # Custom user model for email authentication
 AUTH_USER_MODEL = "custom_user.User"
+
+
+WAGTAIL_HEADLESS_PREVIEW = {
+    "CLIENT_URLS": {"default": f"{FRONTEND_URL}/api/preview/"},
+    "SERVE_BASE_URL": FRONTEND_URL,
+    "REDIRECT_ON_PREVIEW": True,
+}
