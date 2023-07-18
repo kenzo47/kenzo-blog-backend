@@ -1,0 +1,87 @@
+[tool.ruff]
+select = ["E", "F"]
+extend-select = [
+    "B",
+    "BLE",
+    "C4",
+    "ERA",
+    "I",
+    "ICN",
+    "INP",
+    "ISC",
+    "N",
+    "NPY",
+    "PGH",
+    "PIE",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "S",
+    "SIM",
+    "T20",
+    "TCH",
+    "TID",
+    "YTT",
+    "ANN201",
+    "ANN202",
+    "ANN204",
+    "ANN205",
+    "ANN206",
+]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    "__init__.py", # allow __init__.py to be empty
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+# ERA001 no commented code, T201 no print() statements
+ignore = [] 
+show-fixes = true
+target-version = "py311"
+line-length = 120
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.black]
+line-length = 120
+
+[tool.poetry]
+name = "kenzo-blog-backend"
+version = "1"
+description = "Personal back-end for simple blog using Wagtail."
+authors = ["Kenzo Wijnants <kenzo.wijnants@gmail.com>"]
+readme = "README.md"
+packages = [{include = "kenzo_blog_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+wagtail = "^5.0.2"
+ruff = "^0.0.278"
+black = "^23.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
