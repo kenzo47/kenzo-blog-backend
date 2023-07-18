@@ -87,6 +87,7 @@ wagtail-headless-preview = "^0.6.0"
 djangorestframework-simplejwt = "^5.2.2"
 wagtail-seo = {git = "https://github.com/jdlabsco/wagtail-seo.git"}
 django-storages = "^1.13.2"
+boto3 = "^1.28.5"
 
 
 [build-system]
