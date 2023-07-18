@@ -73,7 +73,6 @@ version = "1"
 description = "Personal back-end for simple blog using Wagtail."
 authors = ["Kenzo Wijnants <kenzo.wijnants@gmail.com>"]
 readme = "README.md"
-packages = [{include = "kenzo_blog_backend"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
