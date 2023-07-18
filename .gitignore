@@ -65,3 +65,6 @@ docker-compose.local.yml
 
 # Postgres database dumps
 *.dump
+
+# Static files
+static/
