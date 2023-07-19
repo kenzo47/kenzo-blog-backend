@@ -143,14 +143,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
+WAGTAIL_I18N_ENABLED = True
+WAGTAIL_LOCALIZE_DEFAULT_TRANSLATION_MODE = "simple"
+
+LANGUAGES = [("en", "English"), ("nl", "Dutch")]
+
+WAGTAILLOCALIZE_MACHINE_TRANSLATOR = {
+    "CLASS": "wagtail_localize.machine_translators.deepl.DeepLTranslator",
+    "OPTIONS": {
+        "AUTH_KEY": os.environ.get("DEEPL_AUTH", None),
+    },
+}
 
 
 # Static files (CSS, JavaScript, Images)
