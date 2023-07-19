@@ -1208,6 +1208,24 @@ docs = ["Sphinx (>=1.5.2)", "myst-parser (==0.18.1)", "pyenchant (>=3.1.1,<4)", 
 testing = ["Jinja2 (>=3.0,<3.2)", "azure-mgmt-cdn (>=12.0,<13.0)", "azure-mgmt-frontdoor (>=1.0,<1.1)", "black (==22.3.0)", "boto3 (>=1.16,<1.17)", "coverage (>=3.7.0)", "curlylint (==0.13.1)", "django-pattern-library (>=0.7,<0.8)", "djhtml (==1.5.2)", "doc8 (==0.8.1)", "elasticsearch (>=5.0,<6.0)", "factory-boy (>=3.2)", "flake8 (>=3.6.0)", "flake8-assertive (==2.0.0)", "flake8-blind-except (==0.1.1)", "flake8-comprehensions (==3.8.0)", "flake8-print (==5.0.0)", "freezegun (>=0.3.8)", "isort (==5.6.4)", "polib (>=1.1,<2.0)", "python-dateutil (>=2.7)", "pytz (>=2014.7)", "semgrep (==1.3.0)"]
 
 [[package]]
+name = "wagtail-autocomplete"
+version = "0.10.0"
+description = "An Autocomplete edit handler for Pages, Snippets, and more."
+optional = false
+python-versions = "*"
+files = [
+    {file = "wagtail-autocomplete-0.10.0.tar.gz", hash = "sha256:281a76f5dab23f4e82175f81c7d63982353aa7ec349a0fef4dd73555ccdcc0c5"},
+    {file = "wagtail_autocomplete-0.10.0-py3-none-any.whl", hash = "sha256:70221551d19a43bbd2db56cc659f48d790cde8d6f0b1a48753f4b197302847eb"},
+]
+
+[package.dependencies]
+wagtail = ">=2.15"
+
+[package.extras]
+docs = ["Sphinx (>=1.7)", "sphinx-rtd-theme (>=0.4.0)"]
+test = ["beautifulsoup4 (>=4.8)", "html5lib (>=0.999999999)", "pytest (>=3.5)", "pytest-django (>=3.2)", "pytest-pythonpath (>=0.7.2)", "tox"]
+
+[[package]]
 name = "wagtail-headless-preview"
 version = "0.6.0"
 description = "Enhance Wagtail previews in headless setups."
@@ -1310,4 +1328,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "2abd92f44d23ef36d348eb318c0db9c5faa8c21cce9d09676ae0ffab1fdbae7f"
+content-hash = "c57636c4569045dedad3bcee8a7bd3b290675f7a0a4a3e49737c4a68cae31101"

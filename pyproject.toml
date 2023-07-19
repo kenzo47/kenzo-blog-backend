@@ -90,6 +90,7 @@ boto3 = "^1.28.5"
 whitenoise = "^6.5.0"
 wagtail-localize = "^1.5.1"
 psycopg = "^3.1.9"
+wagtail-autocomplete = "^0.10.0"
 
 
 [build-system]
