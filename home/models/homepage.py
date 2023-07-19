@@ -3,6 +3,7 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel, ObjectList, Tabbed
 from wagtail.fields import RichTextField
 from wagtail.models import Page
 from wagtail_headless_preview.models import HeadlessPreviewMixin
+from wagtailautocomplete.edit_handlers import AutocompletePanel
 from wagtailseo.models import SeoMixin, SeoType
 
 from base.panels.seo import seo_panels
