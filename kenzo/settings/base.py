@@ -79,6 +79,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # Whitenoise
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
@@ -150,7 +151,7 @@ USE_TZ = True
 WAGTAIL_I18N_ENABLED = True
 WAGTAIL_LOCALIZE_DEFAULT_TRANSLATION_MODE = "simple"
 
-LANGUAGES = [("en", "English"), ("nl", "Dutch")]
+WAGTAIL_CONTENT_LANGUAGES = [("en", "English"), ("nl", "Dutch")]
 
 WAGTAILLOCALIZE_MACHINE_TRANSLATOR = {
     "CLASS": "wagtail_localize.machine_translators.deepl.DeepLTranslator",
