@@ -51,7 +51,7 @@ class HomePage(HeadlessPreviewMixin, SeoMixin, Page):
         ),
     ]
 
-    seo_panels = seo_panels(disable_slug=True)
+    seo_panels = seo_panels(disable_slug=False)
 
     edit_handler = TabbedInterface(
         [
@@ -62,10 +62,6 @@ class HomePage(HeadlessPreviewMixin, SeoMixin, Page):
 
     subpage_types = []
     seo_content_type = SeoType.WEBSITE
-
-    def clean(self) -> None:
-        super().clean()
-        self.slug = "home"
 
     def get_admin_display_title(self) -> str:
         return "Home Page"
