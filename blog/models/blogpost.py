@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db.models import CASCADE, SET_NULL, DateTimeField, ForeignKey
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel, ObjectList, TabbedInterface
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel, ObjectList, TabbedInterface
 from wagtail.fields import RichTextField
 from wagtail.models import Page
 from wagtailseo.models import SeoMixin, SeoType
@@ -13,15 +13,6 @@ class BlogPostPage(SeoMixin, Page):
     Model for blog posts.
     """
 
-    category = ForeignKey(
-        "blog.Category",
-        on_delete=SET_NULL,
-        null=True,
-        blank=True,
-        related_name="+",
-        verbose_name="Category",
-        help_text="Choose a category for the blog post.",
-    )
     image = ForeignKey(
         "wagtailimages.Image",
         blank=True,
@@ -39,12 +30,12 @@ class BlogPostPage(SeoMixin, Page):
     )
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
-    author = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+    author = ForeignKey(settings.AUTH_USER_MODEL, on_delete=SET_NULL, null=True, blank=False, verbose_name="Author")
 
     content_panels = [
         *Page.content_panels,
         MultiFieldPanel(
-            [FieldPanel("category"), FieldPanel("author"), FieldPanel("body")],
+            [InlinePanel("blog_post_categories"), FieldPanel("author"), FieldPanel("body")],
             heading="Blog post content",
         ),
     ]

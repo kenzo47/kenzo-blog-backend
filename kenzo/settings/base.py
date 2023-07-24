@@ -35,6 +35,7 @@ CUSTOM_APPS = [
     "wagtailseo",
     "wagtail_headless_preview",
     "storages",
+    "wagtailautocomplete",
 ]
 
 INSTALLED_APPS = [

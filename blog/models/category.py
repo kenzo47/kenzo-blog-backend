@@ -37,6 +37,11 @@ class Category(Model):
     def __str__(self) -> str:
         return self.name
 
+    def autocomplete_label(self) -> str:
+        return self.name
+
+    autocomplete_search_field = "name"
+
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
