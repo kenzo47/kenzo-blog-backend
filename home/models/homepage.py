@@ -60,7 +60,9 @@ class HomePage(HeadlessPreviewMixin, SeoMixin, Page):
         ]
     )
 
-    subpage_types = []
+    subpage_types = [
+        "blog.BlogIndexPage",
+    ]
     seo_content_type = SeoType.WEBSITE
 
     def get_admin_display_title(self) -> str:

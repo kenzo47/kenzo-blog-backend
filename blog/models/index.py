@@ -1,7 +1,15 @@
 from wagtail.models import Page
-from wagtail_headless_preview.models import HeadlessPreviewMixin
-from wagtailseo.models import SeoMixin
 
 
 class BlogIndexPage(Page):
-    pass
+    """
+    Index page for blog posts.
+    Used for nesting blog posts under a single page.
+    """
+
+    subpage_types = ["blog.BlogPostPage"]
+    max_count = 1
+
+    class Meta:
+        verbose_name = "Blog Index"
+        verbose_name_plural = "Blog Indexes"
