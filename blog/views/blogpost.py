@@ -1,7 +1,7 @@
-from django_filters.rest_framework import filters
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import generics
 from rest_framework.exceptions import ValidationError
+from rest_framework.filters import OrderingFilter
 from wagtail.models import Locale
 
 from blog.helpers import BlogPagination
@@ -20,13 +20,13 @@ class BlogPostPageAPIView(generics.ListAPIView):
     params:
         locale: Locale string
         page_size: Number of results per page, defaults to 6
-        ordering: Order the results by a field: created_at, updated_at, author  
+        ordering: Order the results by a field: created_at, updated_at, author
     """
 
     serializer_class = BlogPostPageSerializer
     pagination_class = BlogPagination
     ordering_fields = ["created_at", "updated_at", "author"]
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [OrderingFilter]
 
     def get_queryset(self) -> BlogPostPage:
         if "locale" not in self.request.query_params:
