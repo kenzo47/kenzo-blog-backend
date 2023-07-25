@@ -30,12 +30,11 @@ class BlogPostPage(SeoMixin, Page):
     )
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
-    author = ForeignKey(settings.AUTH_USER_MODEL, on_delete=SET_NULL, null=True, blank=False, verbose_name="Author")
 
     content_panels = [
         *Page.content_panels,
         MultiFieldPanel(
-            [InlinePanel("blog_post_categories"), FieldPanel("author"), FieldPanel("body")],
+            [InlinePanel("blog_post_categories"), FieldPanel("body")],
             heading="Blog post content",
         ),
     ]
@@ -50,7 +49,7 @@ class BlogPostPage(SeoMixin, Page):
     )
 
     subpage_types = []
-    seo_content_type = SeoType.WEBSITE
+    seo_content_type = SeoType.ARTICLE
 
     def seo_image(self) -> str:
         """
