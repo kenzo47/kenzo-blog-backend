@@ -24,4 +24,6 @@ class BlogPostPageSerializer(serializers.Serializer):
         """
         Create a thumbnail rendition of the image using the ImageSerializer and the 'image' as source.
         """
-        return ImageSerializer(obj.image, rendition="width-480|format-webp|webpquality-70").data
+        if obj.image:
+            return ImageSerializer(obj.image, rendition="width-480|format-webp|webpquality-70").data
+        return None
