@@ -1,3 +1,4 @@
+from django.template.defaultfilters import truncatewords_html
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
@@ -9,7 +10,7 @@ class BlogPostPageSerializer(serializers.Serializer):
     title = serializers.CharField()
     slug = serializers.CharField()
     # BlogPostPage fields
-    subtitle = serializers.CharField()
+    subtitle = serializers.SerializerMethodField()
     image = ImageSerializer(rendition="width-1920|format-webp|webpquality-70")
     image_thumbnail = SerializerMethodField()
     body = serializers.CharField()
@@ -28,3 +29,9 @@ class BlogPostPageSerializer(serializers.Serializer):
         if obj.image:
             return ImageSerializer(obj.image, rendition="width-480|format-webp|webpquality-70").data
         return None
+
+    def get_subtitle(self, obj) -> str:
+        """
+        Truncate the subtitle to 100 characters.
+        """
+        return truncatewords_html(obj.subtitle, 25)
