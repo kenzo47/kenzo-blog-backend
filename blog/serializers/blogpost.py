@@ -9,6 +9,7 @@ class BlogPostPageSerializer(serializers.Serializer):
     title = serializers.CharField()
     slug = serializers.CharField()
     # BlogPostPage fields
+    subtitle = serializers.CharField()
     image = ImageSerializer(rendition="width-1920|format-webp|webpquality-70")
     image_thumbnail = SerializerMethodField()
     body = serializers.CharField()

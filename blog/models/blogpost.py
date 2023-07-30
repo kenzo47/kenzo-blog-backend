@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.db.models import CASCADE, SET_NULL, DateTimeField, ForeignKey
+from django.db.models import SET_NULL, DateTimeField, ForeignKey
 from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel, ObjectList, TabbedInterface
 from wagtail.fields import RichTextField
 from wagtail.models import Page
@@ -13,6 +13,13 @@ class BlogPostPage(SeoMixin, Page):
     Model for blog posts.
     """
 
+    subtitle = RichTextField(
+        null=True,
+        blank=True,
+        verbose_name="Subtitle",
+        help_text="Write a subtitle for the blog post. This will be displayed in the blog post overview.",
+        features=["bold", "italic"],
+    )
     image = ForeignKey(
         "wagtailimages.Image",
         blank=True,
@@ -34,7 +41,7 @@ class BlogPostPage(SeoMixin, Page):
     content_panels = [
         *Page.content_panels,
         MultiFieldPanel(
-            [InlinePanel("blog_post_categories"), FieldPanel("body")],
+            [InlinePanel("blog_post_categories"), FieldPanel("subtitle"), FieldPanel("body")],
             heading="Blog post content",
         ),
     ]
