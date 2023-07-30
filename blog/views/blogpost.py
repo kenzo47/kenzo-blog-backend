@@ -35,5 +35,5 @@ class BlogPostPageAPIView(generics.ListAPIView):
         try:
             blog_posts = BlogPostPage.objects.filter(locale=locale).live().public()
         except BlogPostPage.DoesNotExist as e:
-            raise ValidationError("No eSports article found for this locale.") from e
+            raise ValidationError("No blog posts found for this locale.") from e
         return blog_posts

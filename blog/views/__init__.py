@@ -1,1 +1,2 @@
 from .blogpost import BlogPostPageAPIView
+from .highlighted_blogpost import HighlightedBlogPostPageAPIView

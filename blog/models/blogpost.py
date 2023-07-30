@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db.models import SET_NULL, DateTimeField, ForeignKey
 from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel, ObjectList, TabbedInterface
 from wagtail.fields import RichTextField
