@@ -1,6 +1,7 @@
 from drf_spectacular.utils import OpenApiParameter, extend_schema
-from rest_framework import generics
 from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from wagtail.models import Locale, Page
 
 from blog.models import BlogIndexPage, BlogPostPage
@@ -12,7 +13,7 @@ from blog.serializers import BlogPostPageSerializer
     parameters=[OpenApiParameter("locale", description="Locale string", type=str, required=True)],
     responses=BlogPostPageSerializer,
 )
-class HighlightedBlogPostPageAPIView(generics.RetrieveAPIView):
+class HighlightedBlogPostPageAPIView(APIView):
     """
     API endpoint to retrieve the highlighted blog post for a given locale.
     params:
@@ -21,13 +22,13 @@ class HighlightedBlogPostPageAPIView(generics.RetrieveAPIView):
 
     serializer_class = BlogPostPageSerializer
 
-    def get_queryset(self) -> BlogPostPage:
+    def get(self, request) -> BlogPostPage:
         if "locale" not in self.request.query_params:
             raise ValidationError("Please provide a Locale.")
         locale = Locale.objects.get(language_code=self.request.query_params.get("locale"))
         try:
-            blog_index_page = BlogIndexPage.objects.get(locale=locale).live().public()
+            blog_index_page = BlogIndexPage.objects.get(locale=locale)
             highlighted_post = blog_index_page.highlighted_post
         except Page.DoesNotExist as e:
             raise ValidationError("No highlighted blog post found") from e
-        return highlighted_post
+        return Response(self.serializer_class(highlighted_post).data)

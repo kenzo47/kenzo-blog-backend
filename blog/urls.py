@@ -6,5 +6,5 @@ app_name = "blog"
 
 urlpatterns = [
     path("posts", BlogPostPageAPIView.as_view(), name="blog-post-list"),
-    path("highlighted-post", HighlightedBlogPostPageAPIView.as_view(), name="highlighted-blog-post"),
+    path("posts/highlighted", HighlightedBlogPostPageAPIView.as_view(), name="highlighted-blog-post"),
 ]
