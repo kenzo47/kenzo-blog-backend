@@ -18,7 +18,7 @@ class BlogIndexPage(Page):
         related_name="+",
     )
 
-    content_panels = [*Page.content_panels, FieldPanel("highlighted_post")]
+    content_panels = [FieldPanel("title"), FieldPanel("slug"), FieldPanel("highlighted_post")]
 
     edit_handler = TabbedInterface(
         [
