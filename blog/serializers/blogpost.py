@@ -7,6 +7,7 @@ from base.serializers import ImageSerializer
 
 class BlogPostPageSerializer(serializers.Serializer):
     # Page fields
+    id = serializers.IntegerField()
     title = serializers.CharField()
     slug = serializers.CharField()
     # BlogPostPage fields
