@@ -27,8 +27,10 @@ class HighlightedBlogPostPageAPIView(APIView):
             raise ValidationError("Please provide a Locale.")
         locale = Locale.objects.get(language_code=self.request.query_params.get("locale"))
         try:
-            blog_index_page = BlogIndexPage.objects.get(locale=locale)
-            highlighted_post = blog_index_page.highlighted_post
+            blog_index_page = BlogIndexPage.objects.filter(locale=locale).first()
+            highlighted_post = blog_index_page.highlighted_post if blog_index_page else None
+            if not highlighted_post:
+                raise Page.DoesNotExist
+            return Response(self.serializer_class(highlighted_post).data)
         except Page.DoesNotExist as e:
-            raise ValidationError("No highlighted blog post found") from e
-        return Response(self.serializer_class(highlighted_post).data)
+            raise ValidationError("No highlighted blog post found.") from e
