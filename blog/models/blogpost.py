@@ -26,7 +26,8 @@ class BlogPostPage(SeoMixin, Page):
         on_delete=SET_NULL,
         related_name="+",
         verbose_name="Image",
-        help_text="Choose an image for the blog post.",
+        help_text="Choose an image for the blog post. \
+            A thumbnail version of this image will be displayed in the blog post overview.",
     )
     body = RichTextField(
         null=True,
@@ -40,7 +41,7 @@ class BlogPostPage(SeoMixin, Page):
     content_panels = [
         *Page.content_panels,
         MultiFieldPanel(
-            [InlinePanel("blog_post_categories"), FieldPanel("subtitle"), FieldPanel("body")],
+            [InlinePanel("blog_post_categories"), FieldPanel("image"), FieldPanel("subtitle"), FieldPanel("body")],
             heading="Blog post content",
         ),
     ]
